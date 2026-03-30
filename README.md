@@ -40,9 +40,7 @@ git clone https://github.com/orange-brother/obsidian-skills.git ~/.opencode/skil
 |------|------|
 | [obsidian-markdown](skills/obsidian-markdown) | wikilinks, embeds, callouts, properties 등 Obsidian 전용 문법으로 `.md` 파일 작성/편집 |
 | [obsidian-bases](skills/obsidian-bases) | views, filters, formulas, summaries를 사용한 `.base` 파일 작성/편집 |
-| [json-canvas](skills/json-canvas) | nodes, edges, groups 등으로 `.canvas` 파일 작성/편집 |
 | [obsidian-cli](skills/obsidian-cli) | Obsidian CLI를 통해 vault 노트 관리, 플러그인·테마 개발 |
-| [defuddle](skills/defuddle) | 웹페이지에서 불필요한 요소를 제거하고 깔끔한 마크다운으로 추출 |
 | [dev-log](skills/dev-log) | 작업명과 배경을 입력하면 git 맥락을 수집하고 인터뷰를 통해 회고 노트를 vault에 저장 |
 
 ## 설치 경로
@@ -60,7 +58,7 @@ git clone https://github.com/orange-brother/obsidian-skills.git ~/.opencode/skil
 
 1. **작업명과 배경 입력** — 작업명과 한두 줄 설명을 제공합니다
 2. **git 맥락 자동 수집** — git log, diff, PR 등을 자동으로 수집합니다
-3. **관련 노트 탐색** — obsidian-cli로 vault 내 기존 노트를 검색해 wikilink 연결 대상을 파악합니다 (Obsidian 실행 중일 때만 동작)
+3. **관련 노트 탐색** — obsidian-cli로 vault 내 기존 노트를 검색해 wikilink 연결 대상을 파악합니다
 4. **인터뷰** — 결정 이유, 트레이드오프, 인사이트 등 3~5개 질문을 한 번에 던집니다
 5. **노트 생성** — `YYYY-MM-DD-task-name.md` 형식으로 vault에 저장됩니다
 
@@ -98,6 +96,11 @@ status: done
 > [!question] 미해결
 > 남은 것 또는 이어질 작업
 ```
+
+### 주의사항
+
+> [!important]
+> **Step 3 (관련 노트 탐색)은 Obsidian 앱이 실행 중일 때만 동작합니다.** Obsidian이 꺼져있으면 해당 단계는 건너뛰고 wikilink 없이 노트가 생성됩니다.
 
 ### 설정
 
