@@ -59,7 +59,27 @@ Ask all questions at once, not one by one. Keep questions short and concrete bas
 
 ### Step 4 — Write the dev log
 
-Use the **obsidian-markdown skill** to generate the output file. Apply Obsidian Flavored Markdown syntax — frontmatter properties, wikilinks, and callouts — as defined in that skill.
+Use the **obsidian-markdown skill** to generate the output file. Apply the following Obsidian-specific syntax throughout:
+
+**Frontmatter** — include `title`, `date`, `tags`, `status`, `project`, and `repo` fields:
+```yaml
+---
+title: {Task Name}
+date: {YYYY-MM-DD}
+tags:
+  - dev-log
+project: {project or repo name}
+repo: {org/repo}
+status: done
+---
+```
+
+**Wikilinks** — link related notes, projects, or previous dev-logs using `[[Note Name]]` wherever relevant. If the task relates to a known project or previous task, link to it.
+
+**Callouts** — use callouts to highlight key moments in the log:
+- `> [!insight]` for key learnings and takeaways
+- `> [!question]` for unresolved questions or open ends
+- `> [!warning]` for tradeoffs or things to watch out for
 
 Save the file to:
 
@@ -72,13 +92,14 @@ Where `{task-name}` is the task name lowercased with spaces replaced by hyphens.
 ## Output Structure
 
 ```
-frontmatter   → title, date, tags: [dev-log], status: done
+frontmatter   → title, date, tags: [dev-log], project, repo, status: done
 # {Task Name}
-## Background       → user's description, lightly expanded
-## What Changed     → bullet list from git context
-## Decisions & Reasoning  → from interview, written in first person
-## Insights         → lessons learned, surprises
-## Open Questions   → omit if nothing unresolved
+## 배경            → user's description, lightly expanded
+## 변경 내역        → bullet list from git context, with [[wikilinks]] where relevant
+## 고민과 판단      → key decisions from interview, written in first person
+               → use > [!warning] for tradeoffs
+## 인사이트         → use > [!insight] for each key learning
+## 다음 액션        → use > [!question] for unresolved items, omit if nothing
 ```
 
 > You MUST write the entire log in Korean, regardless of the language the user used. Keep each section concise — this is a log, not documentation.
