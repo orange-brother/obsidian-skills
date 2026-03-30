@@ -45,6 +45,15 @@ git clone https://github.com/orange-brother/obsidian-skills.git ~/.opencode/skil
 | [defuddle](skills/defuddle) | 웹페이지에서 불필요한 요소를 제거하고 깔끔한 마크다운으로 추출 |
 | [dev-log](skills/dev-log) | 작업명과 배경을 입력하면 git 맥락을 수집하고 인터뷰를 통해 회고 노트를 vault에 저장 |
 
+## 설치 경로
+
+`npx skills add`로 설치하면 에이전트별로 다음 경로에 저장됩니다:
+
+| 에이전트 | 경로 |
+|---------|------|
+| Claude Code | `~/.agents/skills/` |
+| Codex | `~/.codex/skills/` |
+
 ## dev-log 사용법
 
 작업이 끝난 후 에이전트에게 `dev-log 스킬 써줘` 또는 `/dev-log`로 호출합니다.
@@ -54,7 +63,7 @@ git clone https://github.com/orange-brother/obsidian-skills.git ~/.opencode/skil
 3. **인터뷰** — AI가 결정 이유, 트레이드오프, 인사이트 등 3~5개 질문을 한 번에 던집니다
 4. **노트 생성** — `YYYY-MM-DD-task-name.md` 형식으로 vault에 저장됩니다
 
-사용 전 `skills/dev-log/SKILL.md`의 `VAULT_PATH`를 본인 vault 경로로 수정하세요:
+사용 전 `~/.agents/skills/dev-log/SKILL.md`의 `VAULT_PATH`를 본인 vault 경로로 수정하세요:
 
 ```
 VAULT_PATH = /Users/yourname/Documents/MyVault/Dev Logs
