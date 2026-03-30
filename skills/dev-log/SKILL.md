@@ -59,7 +59,9 @@ Ask all questions at once, not one by one. Keep questions short and concrete bas
 
 ### Step 4 — Write the dev log
 
-Generate a single Obsidian markdown file using the structure below. Save it to:
+Use the **obsidian-markdown skill** to generate the output file. Apply Obsidian Flavored Markdown syntax — frontmatter properties, wikilinks, and callouts — as defined in that skill.
+
+Save the file to:
 
 ```
 {VAULT_PATH}/{YYYY-MM-DD}-{task-name}.md
@@ -67,38 +69,16 @@ Generate a single Obsidian markdown file using the structure below. Save it to:
 
 Where `{task-name}` is the task name lowercased with spaces replaced by hyphens.
 
-## Output Format
+## Output Structure
 
-```markdown
----
-title: {Task Name}
-date: {YYYY-MM-DD}
-tags:
-  - dev-log
-status: done
----
-
+```
+frontmatter   → title, date, tags: [dev-log], status: done
 # {Task Name}
-
-## Background
-
-{User's background description, lightly expanded if needed}
-
-## What Changed
-
-{Summary of changed files and commits from git context. Use a short bullet list.}
-
-## Decisions & Reasoning
-
-{Key decisions the user made, derived from the interview. Write in first person as if the user is writing.}
-
-## Insights
-
-{Lessons learned, surprises, and things worth remembering for next time.}
-
-## Open Questions
-
-{Anything unresolved, deferred, or worth revisiting. Omit this section if there is nothing.}
+## Background       → user's description, lightly expanded
+## What Changed     → bullet list from git context
+## Decisions & Reasoning  → from interview, written in first person
+## Insights         → lessons learned, surprises
+## Open Questions   → omit if nothing unresolved
 ```
 
 > Write the log in the same language the user used when describing the task. Keep each section concise — this is a log, not documentation.
