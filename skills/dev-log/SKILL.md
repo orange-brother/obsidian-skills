@@ -81,4 +81,4 @@ frontmatter   → title, date, tags: [dev-log], status: done
 ## Open Questions   → omit if nothing unresolved
 ```
 
-> Write the log in the same language the user used when describing the task. Keep each section concise — this is a log, not documentation.
+> You MUST write the entire log in Korean, regardless of the language the user used. Keep each section concise — this is a log, not documentation.
