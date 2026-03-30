@@ -59,9 +59,47 @@ git clone https://github.com/orange-brother/obsidian-skills.git ~/.opencode/skil
 작업이 끝난 후 에이전트에게 `dev-log 스킬 써줘` 또는 `/dev-log`로 호출합니다.
 
 1. **작업명과 배경 입력** — 작업명과 한두 줄 설명을 제공합니다
-2. **자동 수집** — AI가 git log, diff, PR 등 맥락을 자동으로 수집합니다
-3. **인터뷰** — AI가 결정 이유, 트레이드오프, 인사이트 등 3~5개 질문을 한 번에 던집니다
-4. **노트 생성** — `YYYY-MM-DD-task-name.md` 형식으로 vault에 저장됩니다
+2. **git 맥락 자동 수집** — git log, diff, PR 등을 자동으로 수집합니다
+3. **관련 노트 탐색** — obsidian-cli로 vault 내 기존 노트를 검색해 wikilink 연결 대상을 파악합니다 (Obsidian 실행 중일 때만 동작)
+4. **인터뷰** — 결정 이유, 트레이드오프, 인사이트 등 3~5개 질문을 한 번에 던집니다
+5. **노트 생성** — `YYYY-MM-DD-task-name.md` 형식으로 vault에 저장됩니다
+
+### 출력 노트 형태
+
+```markdown
+---
+title: 작업명
+date: YYYY-MM-DD
+tags:
+  - dev-log
+project: 프로젝트명
+repo: org/repo
+status: done
+---
+
+# 작업명
+
+## 배경
+작업 배경 설명
+
+## 변경 내역
+- [[관련 노트]]와 연결된 변경사항
+- 변경된 파일 및 커밋 요약
+
+## 고민과 판단
+> [!warning] 트레이드오프
+> 선택한 이유와 포기한 것
+
+## 인사이트
+> [!insight] 핵심 배움
+> 다음에 기억할 것
+
+## 다음 액션
+> [!question] 미해결
+> 남은 것 또는 이어질 작업
+```
+
+### 설정
 
 사용 전 `~/.agents/skills/dev-log/SKILL.md`의 `VAULT_PATH`를 본인 vault 경로로 수정하세요:
 
