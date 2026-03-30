@@ -45,6 +45,19 @@ Also check for PR information if available (e.g. via `gh pr view`). Extract:
 
 Use this context to understand the technical scope of the task. Do not ask the user about things you can derive from git.
 
+### Step 2.5 — Find related notes in the vault
+
+Use the **obsidian-cli skill** to search for existing notes related to this task. Run:
+
+```bash
+obsidian search query="{task-name}" limit=10
+obsidian search query="dev-log" limit=10
+```
+
+This step requires Obsidian to be running. If it is not, skip silently and proceed without wikilinks.
+
+Use the results to identify notes worth linking to in the final output. Do not ask the user about this — infer relevance from titles and content.
+
 ### Step 3 — Interview the user
 
 Ask 3–5 targeted questions to surface tacit knowledge that cannot be found in the code. Focus on:
