@@ -1,51 +1,61 @@
-Agent Skills for use with Obsidian.
+Obsidian 작업을 위한 Agent Skills 모음입니다.
 
-These skills follow the [Agent Skills specification](https://agentskills.io/specification) so they can be used by any skills-compatible agent, including Claude Code and Codex CLI.
+[Agent Skills 스펙](https://agentskills.io/specification)을 따르기 때문에 Claude Code, Codex CLI 등 호환 에이전트에서 모두 사용할 수 있습니다.
 
-## Installation
+## 설치
 
-### Marketplace
-
-```
-/plugin marketplace add orange-brother/obsidian-skills
-/plugin install obsidian@obsidian-skills
-```
-
-### npx skills
-
-```
+```bash
 npx skills add https://github.com/orange-brother/obsidian-skills.git
 ```
 
-### Manually
+설치 후 Claude Code, Codex 등 에이전트를 재시작하면 모든 스킬을 바로 사용할 수 있습니다.
+
+### 수동 설치
 
 #### Claude Code
 
-Add the contents of this repo to a `/.claude` folder in the root of your Obsidian vault (or whichever folder you're using with Claude Code). See more in the [official Claude Skills documentation](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview).
+```bash
+git clone https://github.com/orange-brother/obsidian-skills.git
+cp -r obsidian-skills/skills/* ~/.claude/skills/
+```
 
 #### Codex CLI
 
-Copy the `skills/` directory into your Codex skills path (typically `~/.codex/skills`). See the [Agent Skills specification](https://agentskills.io/specification) for the standard skill format.
+```bash
+git clone https://github.com/orange-brother/obsidian-skills.git
+cp -r obsidian-skills/skills/* ~/.codex/skills/
+```
 
 #### OpenCode
-
-Clone the entire repo into the OpenCode skills directory (`~/.opencode/skills/`):
 
 ```sh
 git clone https://github.com/orange-brother/obsidian-skills.git ~/.opencode/skills/obsidian-skills
 ```
 
-Do not copy only the inner `skills/` folder — clone the full repo so the directory structure is `~/.opencode/skills/obsidian-skills/skills/<skill-name>/SKILL.md`.
+`skills/` 폴더만 복사하지 말고 레포 전체를 클론하세요. OpenCode는 `~/.opencode/skills/` 하위의 모든 `SKILL.md`를 자동으로 인식합니다. 재시작 후 바로 사용 가능합니다.
 
-OpenCode auto-discovers all `SKILL.md` files under `~/.opencode/skills/`. No changes to `opencode.json` or any config file are needed. Skills become available after restarting OpenCode.
+## 스킬 목록
 
-## Skills
+| 스킬 | 설명 |
+|------|------|
+| [obsidian-markdown](skills/obsidian-markdown) | wikilinks, embeds, callouts, properties 등 Obsidian 전용 문법으로 `.md` 파일 작성/편집 |
+| [obsidian-bases](skills/obsidian-bases) | views, filters, formulas, summaries를 사용한 `.base` 파일 작성/편집 |
+| [json-canvas](skills/json-canvas) | nodes, edges, groups 등으로 `.canvas` 파일 작성/편집 |
+| [obsidian-cli](skills/obsidian-cli) | Obsidian CLI를 통해 vault 노트 관리, 플러그인·테마 개발 |
+| [defuddle](skills/defuddle) | 웹페이지에서 불필요한 요소를 제거하고 깔끔한 마크다운으로 추출 |
+| [dev-log](skills/dev-log) | 작업명과 배경을 입력하면 git 맥락을 수집하고 인터뷰를 통해 회고 노트를 vault에 저장 |
 
-| Skill | Description |
-|-------|-------------|
-| [obsidian-markdown](skills/obsidian-markdown) | Create and edit [Obsidian Flavored Markdown](https://help.obsidian.md/obsidian-flavored-markdown) (`.md`) with wikilinks, embeds, callouts, properties, and other Obsidian-specific syntax |
-| [obsidian-bases](skills/obsidian-bases) | Create and edit [Obsidian Bases](https://help.obsidian.md/bases/syntax) (`.base`) with views, filters, formulas, and summaries |
-| [json-canvas](skills/json-canvas) | Create and edit [JSON Canvas](https://jsoncanvas.org/) files (`.canvas`) with nodes, edges, groups, and connections |
-| [obsidian-cli](skills/obsidian-cli) | Interact with Obsidian vaults via the [Obsidian CLI](https://help.obsidian.md/cli) including plugin and theme development |
-| [defuddle](skills/defuddle) | Extract clean markdown from web pages using [Defuddle](https://github.com/kepano/defuddle-cli), removing clutter to save tokens |
-| [dev-log](skills/dev-log) | Turn a completed task into a retrospective Obsidian note by collecting git context and interviewing the user about decisions and insights |
+## dev-log 사용법
+
+작업이 끝난 후 에이전트에게 `dev-log 스킬 써줘` 또는 `/dev-log`로 호출합니다.
+
+1. **작업명과 배경 입력** — 작업명과 한두 줄 설명을 제공합니다
+2. **자동 수집** — AI가 git log, diff, PR 등 맥락을 자동으로 수집합니다
+3. **인터뷰** — AI가 결정 이유, 트레이드오프, 인사이트 등 3~5개 질문을 한 번에 던집니다
+4. **노트 생성** — `YYYY-MM-DD-task-name.md` 형식으로 vault에 저장됩니다
+
+사용 전 `skills/dev-log/SKILL.md`의 `VAULT_PATH`를 본인 vault 경로로 수정하세요:
+
+```
+VAULT_PATH = /Users/yourname/Documents/MyVault/Dev Logs
+```
