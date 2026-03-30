@@ -11,11 +11,10 @@ Turn a completed task into a team-facing work log and push it to the team's shar
 
 ```
 TEAM_REPO = the-swing/fe-work-logs
-TEAM_REPO_PATH =
 ```
 
 - `TEAM_REPO`: GitHub repository in `org/repo` format
-- `TEAM_REPO_PATH`: Folder path inside the repo (e.g. `logs/swing/`). Leave empty to save at root.
+- File path inside the repo is automatically set to `{git user.name}/{YYYY-MM-DD}-{task-name}.md`
 
 ## Prerequisites
 
@@ -69,20 +68,19 @@ cat > /tmp/team-log-output.md << 'EOF'
 EOF
 
 # Upload to team repo
-gh api repos/{TEAM_REPO}/contents/{TEAM_REPO_PATH}{YYYY-MM-DD}-{task-name}.md \
+AUTHOR=$(git config user.name)
+FILE_PATH="$AUTHOR/{YYYY-MM-DD}-{task-name}.md"
+
+SHA=$(gh api repos/{TEAM_REPO}/contents/$FILE_PATH --jq '.sha' 2>/dev/null)
+
+gh api repos/{TEAM_REPO}/contents/$FILE_PATH \
   --method PUT \
   -f message="team-log: {task-name}" \
-  -f content="$(base64 /tmp/team-log-output.md)"
+  -f content="$(base64 -i /tmp/team-log-output.md)" \
+  ${SHA:+-f sha="$SHA"}
 
 # Clean up
 rm /tmp/team-log-output.md
-```
-
-If the file already exists, fetch its SHA and include it in the request:
-
-```bash
-SHA=$(gh api repos/{TEAM_REPO}/contents/{TEAM_REPO_PATH}{YYYY-MM-DD}-{task-name}.md --jq '.sha' 2>/dev/null)
-# Add -f sha="$SHA" to the PUT request above
 ```
 
 ## Output Structure
