@@ -58,7 +58,9 @@ Ask the following 5 questions all at once:
 
 ### Step 4 — Write the decision log
 
-Use the **obsidian-markdown skill** to generate the output file. Apply frontmatter, wikilinks, and callouts as defined in that skill.
+Use the **obsidian-markdown skill** for structure — frontmatter, headings, callouts, and wikilinks.
+
+Use the **human-writer skill** for all prose content within each section. Apply its vocabulary, structural, and voice rules to every sentence written. The text should sound like the user wrote it, not like an AI summarized it.
 
 Save the file to:
 

@@ -44,6 +44,7 @@ git clone https://github.com/orange-brother/obsidian-skills.git ~/.opencode/skil
 | [dev-log](skills/dev-log) | 작업명과 배경을 입력하면 git 맥락을 수집하고 인터뷰를 통해 회고 노트를 vault에 저장 |
 | [team-log](skills/team-log) | dev-log와 동일한 흐름으로 회고 노트를 작성하고 gh CLI로 팀 GitHub 레포에 바로 업로드 |
 | [decision-log](skills/decision-log) | 코드 외 업무(리서치, 설계, 기획 등)의 문제 → 검토 → 결정 과정을 인터뷰 기반으로 vault에 저장 |
+| [human-writer](skills/human-writer) | AI 글투를 제거하고 자연스러운 사람 문체로 쓰기 위한 규칙 모음. dev-log, team-log, decision-log가 내부적으로 참조 |
 
 ## 설치 경로
 

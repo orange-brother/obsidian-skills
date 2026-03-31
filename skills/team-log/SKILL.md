@@ -70,6 +70,10 @@ Ask exactly 3 questions, all at once:
 
 ### Step 4 — Write and upload the log
 
+Use the **obsidian-markdown skill** for structure — frontmatter and headings.
+
+Use the **human-writer skill** for all prose content within each section. Apply its vocabulary, structural, and voice rules to every sentence written. The text should sound like the user wrote it, not like an AI summarized it.
+
 Generate the markdown file and upload to the team repo via `gh` CLI:
 
 ```bash
