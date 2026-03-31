@@ -42,6 +42,8 @@ git clone https://github.com/orange-brother/obsidian-skills.git ~/.opencode/skil
 | [obsidian-bases](skills/obsidian-bases) | views, filters, formulas, summaries를 사용한 `.base` 파일 작성/편집 |
 | [obsidian-cli](skills/obsidian-cli) | Obsidian CLI를 통해 vault 노트 관리, 플러그인·테마 개발 |
 | [dev-log](skills/dev-log) | 작업명과 배경을 입력하면 git 맥락을 수집하고 인터뷰를 통해 회고 노트를 vault에 저장 |
+| [team-log](skills/team-log) | dev-log와 동일한 흐름으로 회고 노트를 작성하고 gh CLI로 팀 GitHub 레포에 바로 업로드 |
+| [decision-log](skills/decision-log) | 코드 외 업무(리서치, 설계, 기획 등)의 문제 → 검토 → 결정 과정을 인터뷰 기반으로 vault에 저장 |
 
 ## 설치 경로
 
