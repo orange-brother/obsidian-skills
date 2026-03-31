@@ -19,6 +19,17 @@ Replace `/path/to/your/vault/Dev Logs` with the actual folder path in your Obsid
 
 ## Workflow
 
+### Step 0 — Check configuration
+
+Check if `VAULT_PATH` is still set to the placeholder value `/path/to/your/vault/Dev Logs`.
+
+If it is:
+1. Ask the user: "Obsidian vault 경로를 설정해주세요. dev-log 파일이 저장될 폴더 경로를 알려주세요. (예: /Users/yourname/Documents/MyVault/Dev Logs)"
+2. Once the user provides the path, update this SKILL.md file — replace the placeholder with the actual path
+3. Confirm the path is set and proceed
+
+If `VAULT_PATH` is already configured, skip this step silently.
+
 ### Step 1 — Receive task input
 
 The user provides:

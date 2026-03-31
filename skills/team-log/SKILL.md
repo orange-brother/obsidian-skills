@@ -22,6 +22,17 @@ TEAM_REPO = the-swing/fe-work-logs
 
 ## Workflow
 
+### Step 0 — Check configuration
+
+Check if `TEAM_REPO` is still set to the placeholder value `the-swing/fe-work-logs`.
+
+If it is:
+1. Ask the user: "팀 로그를 올릴 GitHub 레포를 설정해주세요. (예: your-org/work-logs)"
+2. Once the user provides the repo, update this SKILL.md file — replace the placeholder with the actual value
+3. Confirm the repo is set and proceed
+
+If `TEAM_REPO` is already configured, skip this step silently.
+
 ### Step 1 — Receive task input
 
 The user provides:
